@@ -12,7 +12,7 @@ def extract_email_metadata(record: dict, metadata: dict) -> dict:
 
 loader = JSONLoader(
     # Make sure you have set the path to your emails extracted data
-    file_path='./data/emails_2024_05_08_134553.json',
+    file_path='your_extracted_emails_data',
     jq_schema='.emails[]',
     text_content=False,
     metadata_func=extract_email_metadata
@@ -77,8 +77,9 @@ from langchain_core.output_parsers import StrOutputParser
 chain = chain | StrOutputParser()
 
 # Invoking our chain
-#query = "Check the email I received from Karen TOLE WA DOKO and suggest a dfrat email to respond to her" # Ask your question here
-#print(chain.invoke(query))
+query = "Check the email I received from Karen TOLE WA DOKO and suggest a dfrat email to respond to her" # Ask your question here
+query = "Give me a summary of the emails I received"
+print(chain.invoke(query))
 
 
 def response_generator(prompt):
